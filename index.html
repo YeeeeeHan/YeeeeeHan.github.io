@@ -18,9 +18,33 @@
   figure img { display: block; width: 100%; height: auto; border: 1px solid #ddd; }
   figcaption { font-size: 14px; color: #555; margin-top: 8px; }
   .when { color: #555; font-weight: normal; }
+  html { scroll-behavior: smooth; }
+  h2 { scroll-margin-top: 24px; }
+  .side { font-size: 15px; }
+  .side ul { list-style: none; margin: 0; padding: 0; }
+  .side a { text-decoration: none; }
+  .side a:hover { text-decoration: underline; }
+  @media (min-width: 1100px) {
+    .side { position: fixed; top: 64px; left: calc(50% - 340px - 200px); width: 170px; }
+    .side li { margin: 0 0 10px; }
+  }
+  @media (max-width: 1099px) {
+    main { padding-top: 32px; }
+    .side { max-width: 680px; margin: 0 auto; padding: 24px 20px 0; }
+    .side ul { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  }
 </style>
 </head>
 <body>
+<nav class="side" aria-label="Sections">
+<ul>
+  <li><a href="#artagain">ArtAgain</a></li>
+  <li><a href="#compliance">Compliance screening</a></li>
+  <li><a href="#other-work">Other work</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
 <main>
 
 <h1>Lim Yee Han</h1>
@@ -29,7 +53,7 @@
 
 <p><a href="mailto:limyeehan@gmail.com">limyeehan@gmail.com</a> · <a href="https://github.com/YeeeeeHan">github.com/YeeeeeHan</a> · <a href="lim-yee-han-resume.pdf">Resume (PDF)</a></p>
 
-<h2>ArtAgain</h2>
+<h2 id="artagain">ArtAgain</h2>
 
 <p>ArtAgain is an art resale business. I've worked with them as a consulting engineer since March 2026. This is the part of that work I learnt the most from.</p>
 
@@ -55,7 +79,7 @@
   <figcaption>The listing workspace after an artwork is handed to Shopify, shown with test data. From this point Shopify owns the listing, so the team knows which record to trust.</figcaption>
 </figure>
 
-<h2>Compliance screening for a Singapore financial institution</h2>
+<h2 id="compliance">Compliance screening for a Singapore financial institution</h2>
 
 <p>This one I started myself. A friend at a Singapore financial institution described how their compliance team screened every party in a deal by hand: a Google search per name, evidence saved into files, and the same names keyed again into a second system for monitoring. I built a first demo from that description. Each party gets a screening run with a short summary of the evidence, the reviewer records a decision and a reason against every result, every run is kept for audit, the risk rating sets the next review date, and everyone onboarded is monitored daily.</p>
 
@@ -68,7 +92,7 @@
 
 <p>What I took from it: the person who describes a problem is often not the person who does the work. Hear it from the people doing the job before you trust your picture of it.</p>
 
-<h2>Other work</h2>
+<h2 id="other-work">Other work</h2>
 
 <h3>Cronos AI SDK <span class="when">· Crypto.com, 2024 to 2026</span></h3>
 
@@ -82,7 +106,7 @@
 
 <p>I maintained the core video playback service, which handles 350,000 requests a second, and was on call for it.</p>
 
-<h2>Contact</h2>
+<h2 id="contact">Contact</h2>
 
 <p>Email me at <a href="mailto:limyeehan@gmail.com">limyeehan@gmail.com</a>, or find me on <a href="https://www.linkedin.com/in/limyeehan/">LinkedIn</a>.</p>
 
