@@ -58,26 +58,23 @@
 
 <h2 id="artagain">ArtAgain</h2>
 
-<p>ArtAgain is an art resale business. I've worked with them as a consulting engineer since March 2026. This is the part of that work I learnt the most from.</p>
+<p>ArtAgain is an art resale business. I have worked with them independently as a consulting engineer since March 2026. They asked for an AI valuation engine to reduce the research behind each price, and for an AR tool that lets buyers see an artwork on their own wall.</p>
 
-<p>They wanted a valuation engine that could price artworks automatically so they wouldn't have to do the research themselves. I went straight to an AI agent that would crawl the web for similar pieces and come up with a price. I had AI start coding it, and it was a mess. I'd picked a solution before I understood what the job was.</p>
+<p>My first valuation prototype was an AI agent that searched the web for similar works and proposed a price. The results were unreliable, because I had chosen the approach before understanding the task. I then asked the staff member who does the pricing to walk me through her process. She opens one auction database, looks up the artist, and filters by medium, edition, size and year until a few comparables remain. None of those steps needs a model. The work is repetitive, and the repetition was what the team wanted removed.</p>
 
-<p>So I sat down with the person who does the pricing and asked her to walk me through it. Her process was pretty mechanical. She opens one database, looks up the artist, and filters by medium, edition, size and year until she's left with a few comparables. None of that needs a model. It's just tedious, and the tedious part was what they actually wanted off their plate.</p>
+<p>The second version uses explicit filters, with a short note explaining why each comparable matched, and she still sets the price. AI is used for one task. The database lists every auction result for an artist, so past sales of the work being priced are mixed with sales of the artist's other works. Rules can flag likely matches by title and size, but confirming that two records show the same piece requires comparing the photos, and that comparison is the one step handed to a model.</p>
 
-<p>The second version was just filters, with a short note explaining why each result showed up. No AI, and she still decides the price.</p>
+<p>My takeaway is to observe how the work is done before choosing the technology, to use rules for routine steps, and to keep AI for the questions rules cannot answer.</p>
 
-<p>AI only ended up in one spot. The database lists every auction result for an artist, so past sales of the exact work you're pricing get mixed in with sales of everything else they've made. You want to separate those, because a work's own sales history shows you where its price is heading. Rules can flag likely matches by title and size, but the only way to be sure it's the same piece is to compare the photos. That's the one question I handed to a model.</p>
+<p>Pricing was one part of a longer engagement. I mapped how a seller gets from a first WhatsApp message to a live Shopify listing and found steps that existed only in chat messages and in people's memory. I then built the database, the staff's views and a listing workspace connected to Shopify, and refined each version with the staff on real seller submissions. Listing an artwork went from three days to two hours.</p>
 
-<p>What I took from it: most systems don't need AI. Get the person doing the job to show you how they do it before you pick the tech. Use rules for the boring bits, and save AI for the one question rules can't answer.</p>
-
-<p>The pricing tool is one piece of a longer job. Before it, I mapped how a seller gets from a first WhatsApp message to a live Shopify listing, and found the steps that only existed in chat messages and in people's heads. Then I built the database, the staff's views and a listing workspace connected to Shopify. The staff used each version on real seller submissions and I refined it with them. Listing an artwork went from three days to two hours.</p>
 <p>I also built a <a href="https://view.artagain.co/">"view on your wall"</a> page for iPhone. A buyer opens a listing's link, taps one button and sees the artwork on their own wall at its recorded size, with no app to install. It reads the photo and size from the Shopify feed.</p>
 
 <h2 id="compliance">Compliance screening for a Singapore financial institution</h2>
 
 <p>I engaged the compliance team of a Singapore financial institution independently. Their screening of every party in a deal was manual. Each name got its own Google search, the evidence was saved to files, and the same names were entered again into a separate monitoring system.</p>
 
-<p>I built a working demo of that workflow and took it to the team, asking them to stop me wherever it did not match how they work. It covered a screening run for each party with an evidence summary, the reviewer's recorded outcome and reason for every result, a full run history for audit, risk ratings that set each party's next review date, and daily monitoring.</p>
+<p>I built a working demo of that workflow and took it to the team, asking them to correct anything that did not match how they work. It covered a screening run for each party with an evidence summary, the reviewer's recorded outcome and reason for every result, a full run history for audit, risk ratings that set each party's next review date, and daily monitoring.</p>
 
 <p>In a later discovery session the team walked me through their web screening step by step, and the scope narrowed to that piece and its audit trail. The compliance team is championing it internally.</p>
 
