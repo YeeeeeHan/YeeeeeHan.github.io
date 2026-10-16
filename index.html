@@ -41,6 +41,7 @@
   <li><a href="#crypto-com">Crypto.com</a></li>
   <li><a href="#tiktok">TikTok</a></li>
   <li><a href="#other-work">Other work</a></li>
+  <li><a href="#how-i-work">How I work</a></li>
   <li><a href="#contact">Contact</a></li>
 </ul>
 </nav>
@@ -74,13 +75,11 @@
 
 <h2 id="compliance">Compliance screening for a Singapore financial institution</h2>
 
-<p>This one I started myself. A friend at a Singapore financial institution described how their compliance team screened every party in a deal by hand. They ran a Google search per name, saved the evidence into files, and keyed the same names again into a second system for monitoring.</p>
+<p>I engaged the compliance team of a Singapore financial institution independently. Their screening of every party in a deal was manual. Each name got its own Google search, the evidence was saved to files, and the same names were entered again into a separate monitoring system.</p>
 
-<p>I built a first demo from that description. It runs a screening for each party and summarises the evidence it finds. The reviewer records a decision and a reason against every result, and every run is kept for audit. A risk rating sets each party's next review date, and everyone onboarded is monitored daily.</p>
+<p>I built a working demo of that workflow and took it to the team, asking them to stop me wherever it did not match how they work. It covered a screening run for each party with an evidence summary, the reviewer's recorded outcome and reason for every result, a full run history for audit, risk ratings that set each party's next review date, and daily monitoring.</p>
 
-<p>I took it to the team and asked them to stop me wherever it didn't match how they actually work. In a later session they walked me through their Google screening step by step, and the project narrowed to that part and its audit trail. The compliance team is now championing it internally.</p>
-
-<p>Same lesson as ArtAgain. My friend's description got me started, and the detail came from the people doing the screening.</p>
+<p>In a later discovery session the team walked me through their web screening step by step, and the scope narrowed to that piece and its audit trail. The compliance team is championing it internally.</p>
 
 <h2 id="crypto-com">Crypto.com <span class="when">· Innovation Team, 2024 to 2026</span></h2>
 
@@ -88,7 +87,11 @@
 
 <p>On the AI agent itself, I worked on the LangChain and LangGraph integration that lets it use tools across several steps, with on-chain tools built alongside the Cronos Explorer team. In late 2025 I built agent wallet and payment features: EIP-7702 session keys so a new wallet with no CRO could give an agent limited rights, passkey sign-in for smart accounts, x402 payments inside the agent as a contributor to the Cronos x402 Facilitator, and an agent trading playground.</p>
 
-<p>Around the agent I worked on the developer dashboard, the services behind it and the playground UI. In early 2026 I proposed splitting the SDK into modules to cut its dependencies; the migration was deferred. Outside the SDK, I led full-stack maintenance of the official Cronos website.</p>
+<p>A conversation with the agent hit the model's 8,192-token limit in November 2024. I traced how each conversation's history grew, planned a token budget and a summary of older messages, and in June 2025 added configurable memory limits to the service.</p>
+
+<p>I audited our own SDK in January 2026. My notes asked what it did that LangGraph didn't already make easy. I proposed a core of four dependencies in place of more than a hundred, with tools that work in any agent framework. The migration was deferred.</p>
+
+<p>Around the agent I worked on the developer dashboard, the services behind it and the playground UI, and built the <a href="https://github.com/crypto-com/developer-platform-sdk-examples/pull/107">example transaction app</a> in the public SDK examples. Outside the SDK, I led full-stack maintenance of the official Cronos website.</p>
 
 <h2 id="tiktok">TikTok <span class="when">· Video Architecture, 2021 to 2022</span></h2>
 
@@ -100,11 +103,15 @@
 
 <h3>Repl <span class="when">· Starboard Ventures, 2023 to 2024</span></h3>
 
-<p>A DeFi protocol on Filecoin that reached USD 15M in deposits, since renamed <a href="https://defillama.com/protocol/parasail">Parasail</a>. I shipped its upgradeable smart contracts and designed pFIL, a rebasing token that pays holders yield without a staking step. I proposed putting protocol changes behind a multisig, and built the dashboard the founders used to approve them with hardware wallets.</p>
+<p>A DeFi protocol on Filecoin that reached USD 15M in deposits, since renamed <a href="https://defillama.com/protocol/parasail">Parasail</a>. I shipped its upgradeable smart contracts and designed pFIL, a rebasing token that pays holders yield without a staking step. I built the multisig dashboard the founders used to approve protocol changes with hardware wallets, and designed how the signers worked together.</p>
 
 <h3>Firerock Capital <span class="when">· 2022 to 2023</span></h3>
 
 <p>Our Docker build took 400 seconds. I got it to 10 by caching <code>go.mod</code> as its own layer and mounting the Go build cache. I also built the Go OAuth service that links a player's social accounts to their game account; the game was still in internal testing when I left.</p>
+
+<h2 id="how-i-work">How I work now</h2>
+
+<p>I build with coding agents. Claude Code and Codex run from one shared set of instructions, each with its own scoped commits and a plan kept in the repository. In 2026 I've made over 2,600 contributions on GitHub, most of them in private repositories, against 515 in all of 2025.</p>
 
 <h2 id="contact">Contact</h2>
 
