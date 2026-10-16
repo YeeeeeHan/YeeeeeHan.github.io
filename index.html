@@ -4,22 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lim Yee Han</title>
-<meta name="description" content="Software engineer in Singapore. I work with the people who do the job, find out how it is really done, and build the system for it.">
+<meta name="description" content="Software engineer in Singapore. I sit with the people who do the work, find out how it's really done, and build the system for it.">
 <meta name="robots" content="noindex, nofollow">
 <style>
+  html { scroll-behavior: smooth; }
   body { margin: 0; background: #fff; color: #111; font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
   main { max-width: 680px; margin: 0 auto; padding: 56px 20px 80px; }
   h1 { font-size: 28px; line-height: 1.2; margin: 0 0 20px; }
-  h2 { font-size: 21px; line-height: 1.3; margin: 56px 0 12px; }
-  h3 { font-size: 17px; line-height: 1.4; margin: 32px 0 4px; }
+  h2 { font-size: 21px; line-height: 1.3; margin: 56px 0 12px; scroll-margin-top: 24px; }
+  h3 { font-size: 17px; line-height: 1.4; margin: 28px 0 4px; }
   p { margin: 0 0 16px; }
   a { color: inherit; }
-  figure { margin: 28px 0; }
-  figure img { display: block; width: 100%; height: auto; border: 1px solid #ddd; }
-  figcaption { font-size: 14px; color: #555; margin-top: 8px; }
+  code { font-size: 15px; }
   .when { color: #555; font-weight: normal; }
-  html { scroll-behavior: smooth; }
-  h2 { scroll-margin-top: 24px; }
   .side { font-size: 15px; }
   .side ul { list-style: none; margin: 0; padding: 0; }
   .side a { text-decoration: none; }
@@ -36,10 +33,13 @@
 </style>
 </head>
 <body>
+
 <nav class="side" aria-label="Sections">
 <ul>
   <li><a href="#artagain">ArtAgain</a></li>
   <li><a href="#compliance">Compliance screening</a></li>
+  <li><a href="#crypto-com">Crypto.com</a></li>
+  <li><a href="#tiktok">TikTok</a></li>
   <li><a href="#other-work">Other work</a></li>
   <li><a href="#contact">Contact</a></li>
 </ul>
@@ -63,48 +63,43 @@
 
 <p>The second version was just filters, with a short note explaining why each result showed up. No AI, and she still decides the price.</p>
 
-<figure>
-  <img src="img/comps-review.jpg" width="1087" height="628" alt="A list of four past auction sales, each with its medium, size, sale date and hammer price, and a Kept button.">
-  <figcaption>Comparables for one artwork. The top line says which filters were applied, each result says how its size compares, and she keeps the ones she trusts.</figcaption>
-</figure>
-
 <p>AI only ended up in one spot. The database lists every auction result for an artist, so past sales of the exact work you're pricing get mixed in with sales of everything else they've made. You want to separate those, because a work's own sales history shows you where its price is heading. Rules can flag likely matches by title and size, but the only way to be sure it's the same piece is to compare the photos. That's the one question I handed to a model.</p>
 
 <p>What I took from it: most systems don't need AI. Get the person doing the job to show you how they do it before you pick the tech. Use rules for the boring bits, and save AI for the one question rules can't answer.</p>
 
-<p>The pricing tool is one piece of a longer job. Before it, I mapped how a seller gets from a first WhatsApp message to a live Shopify listing, and found the steps that only existed in chat messages and in people's heads. Then I built the database, the staff views and the listing workspace, refined them with the staff who use them on real seller submissions, and connected the workspace to Shopify. Listing an artwork went from three days to two hours.</p>
-
-<figure>
-  <img src="img/listing-handoff.jpg" width="782" height="485" alt="A listing workspace panel titled Managed in Shopify, above a table of one artwork's details.">
-  <figcaption>The listing workspace after an artwork is handed to Shopify, shown with test data. From this point Shopify owns the listing, so the team knows which record to trust.</figcaption>
-</figure>
+<p>The pricing tool is one piece of a longer job. Before it, I mapped how a seller gets from a first WhatsApp message to a live Shopify listing, and found the steps that only existed in chat messages and in people's heads. Then I built the database, the staff's views and a listing workspace connected to Shopify. The staff used each version on real seller submissions and I refined it with them. Listing an artwork went from three days to two hours.</p>
 
 <h2 id="compliance">Compliance screening for a Singapore financial institution</h2>
 
-<p>This one I started myself. A friend at a Singapore financial institution described how their compliance team screened every party in a deal by hand: a Google search per name, evidence saved into files, and the same names keyed again into a second system for monitoring. I built a first demo from that description. Each party gets a screening run with a short summary of the evidence, the reviewer records a decision and a reason against every result, every run is kept for audit, the risk rating sets the next review date, and everyone onboarded is monitored daily.</p>
+<p>This one I started myself. A friend at a Singapore financial institution described how their compliance team screened every party in a deal by hand. They ran a Google search per name, saved the evidence into files, and keyed the same names again into a second system for monitoring.</p>
 
-<figure>
-  <img src="img/screening-prototype.png" width="1200" height="738" alt="A screening table listing search results for one company, each marked Clear or Hit, beside a list of the parties in the deal.">
-  <figcaption>The demo, with made-up companies and articles.</figcaption>
-</figure>
+<p>I built a first demo from that description. It runs a screening for each party and summarises the evidence it finds. The reviewer records a decision and a reason against every result, and every run is kept for audit. A risk rating sets each party's next review date, and everyone onboarded is monitored daily.</p>
 
 <p>I took it to the team and asked them to stop me wherever it didn't match how they actually work. In a later session they walked me through their Google screening step by step, and the project narrowed to that part and its audit trail. The compliance team is now championing it internally.</p>
 
-<p>What I took from it: the person who describes a problem is often not the person who does the work. Hear it from the people doing the job before you trust your picture of it.</p>
+<p>Same lesson as ArtAgain. My friend's description got me started, and the detail came from the people doing the screening.</p>
+
+<h2 id="crypto-com">Crypto.com <span class="when">· Innovation Team, 2024 to 2026</span></h2>
+
+<p>I was a blockchain engineer on the Innovation Team. My main work was the Cronos AI SDK, which lets developers build AI agents that act on the Cronos chain. I designed and built it on LangChain and LangGraph, and worked with the Cronos Explorer team to give the agents a set of on-chain tools.</p>
+
+<p>Around the SDK I worked on the developer dashboard, the services behind it and the playground UI. In early 2026 I proposed splitting the SDK into modules to cut its dependencies; the migration was deferred. Outside the SDK, I led full-stack maintenance of the official Cronos website.</p>
+
+<h2 id="tiktok">TikTok <span class="when">· Video Architecture, 2021 to 2022</span></h2>
+
+<p>I was a software engineer on the team that runs video-on-demand playback. I maintained the core playback service, which handles 350,000 requests a second, and was on call for it. Behind it, I built the video-metadata reconciliation service in Go, with RocketMQ and MySQL.</p>
+
+<p>For internal users I built Thrift RPC endpoints to serve their requests, and I wrote scripts that made configuration changes quicker to create.</p>
 
 <h2 id="other-work">Other work</h2>
 
-<h3>Cronos AI SDK <span class="when">· Crypto.com, 2024 to 2026</span></h3>
-
-<p>I designed and built the SDK so developers could ship AI agents that act on the Cronos chain. It uses LangChain and LangGraph, with on-chain tools built with the Explorer team.</p>
-
 <h3>Repl <span class="when">· Starboard Ventures, 2023 to 2024</span></h3>
 
-<p>A DeFi protocol on Filecoin that reached USD 15M in deposits, since renamed <a href="https://defillama.com/protocol/parasail">Parasail</a>. I shipped the upgradeable smart contracts, designed the pFIL rebasing token so holders earn yield without a staking step, and built the dashboard the founders used to approve protocol transactions with hardware wallets.</p>
+<p>A DeFi protocol on Filecoin that reached USD 15M in deposits, since renamed <a href="https://defillama.com/protocol/parasail">Parasail</a>. I shipped its upgradeable smart contracts and designed pFIL, a rebasing token that pays holders yield without a staking step. The founders approved protocol transactions with hardware wallets through a dashboard I built.</p>
 
-<h3>TikTok <span class="when">· Video Architecture, 2021 to 2022</span></h3>
+<h3>Firerock Capital <span class="when">· 2022 to 2023</span></h3>
 
-<p>I maintained the core video playback service, which handles 350,000 requests a second, and was on call for it.</p>
+<p>Our Docker build took 400 seconds. I got it to 10 by caching <code>go.mod</code> as its own layer and mounting the Go build cache. I also built the Go OAuth service that let game players link their social accounts.</p>
 
 <h2 id="contact">Contact</h2>
 
