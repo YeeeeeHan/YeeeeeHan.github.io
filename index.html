@@ -36,8 +36,8 @@
 
 <nav class="side" aria-label="Sections">
 <ul>
-  <li><a href="#artagain">ArtAgain</a></li>
   <li><a href="#compliance">Compliance screening</a></li>
+  <li><a href="#artagain">ArtAgain</a></li>
   <li><a href="#crypto-com">Crypto.com</a></li>
   <li><a href="#tiktok">TikTok</a></li>
   <li><a href="#other-work">Other work</a></li>
@@ -57,35 +57,43 @@
 
 <p><a href="mailto:limyeehan@gmail.com">limyeehan@gmail.com</a> · <a href="https://github.com/YeeeeeHan">github.com/YeeeeeHan</a> · <a href="lim-yee-han-resume.pdf">Resume (PDF)</a></p>
 
+<h2 id="compliance">Compliance screening for a Singapore financial institution</h2>
+
+<p>I have worked independently as a consulting engineer with the compliance team of a Singapore financial institution since June 2026. I ran discovery on their KYC screening and mapped onboarding, adverse-media screening, periodic review and audit, including how the work splits between the front office and compliance. The front office ran a Google search for each party in a deal, the evidence was saved to files, and the same names were entered again into a separate monitoring system.</p>
+
+<p>I built a prototype of that workflow and took it to the team, asking them to correct anything that did not match how they work. Code runs the Google searches through Bright Data's Browser API, which fetches the full results page and the articles it lists, and checks the hard facts. The OpenAI Decisions API (gpt-6-luna) quickly filters out paywalls and unreadable pages, and a gpt-6.1-sol judge on the Responses API marks each article as a true hit, a false hit or needs review.</p>
+
+<p>When the team later walked me through their screening step by step, it showed that the front office had raised slow, manual screening as the problem, while the compliance team, the sponsor, needed observability and an audit trail. The scope narrowed to their web screening and its audit trail. An AI first pass judges every result and drafts mitigants, and human reviewers in the loop decide the harder cases. Every Google results page, the source their reviewers trust, is captured as evidence, and every decision is logged with its reason.</p>
+
+<p>In a live run on 10 names, a completed search took a median of 3 minutes 22 seconds. The team told me that screening 10 to 20 names takes a full day by hand. The compliance team is championing it internally.</p>
+
 <h2 id="artagain">ArtAgain</h2>
 
-<p>ArtAgain is an art resale business. I have worked with them independently as a consulting engineer since March 2026. They asked for an AI valuation engine to reduce the research behind each price, and for an AR tool that lets buyers see an artwork on their own wall.</p>
+<p>ArtAgain is an art resale business. I have worked with them independently as a consulting engineer since March 2026. They asked for an AI art valuation tool to reduce the research behind each price, and for an AR tool that lets buyers see an artwork on their own wall.</p>
 
-<p>My first valuation prototype was an AI agent that searched the web for similar works and proposed a price. The results were unreliable, because I had chosen the approach before understanding the task. I then asked the staff member who does the pricing to walk me through her process. She opens Artprice, looks up the artist, and filters by medium, edition, size and year until a few comparables remain. None of those steps needs a model. The work is repetitive, and the repetition was what the team wanted removed.</p>
+<p>My first valuation prototype was an AI agent that searched the web for similar works and proposed a price. The results were unreliable, because I had chosen the approach before understanding the task.</p>
+
+<p>I then ran discovery with three staff and mapped how a seller gets from a first WhatsApp inquiry, through lead qualification and negotiation, to a live Shopify listing, including who decides each step and where work changes hands. Several steps existed only in chat messages and in people's memory, so I fixed the workflow before introducing a new valuation tool.</p>
+
+<p>I built a PostgreSQL database, Directus operator views and a Convex listing collaboration tool connected to Shopify, and refined each version with the staff on real seller submissions. I kept Shopify as the place the staff already work. The new system, with Shopify's own Draft status, replaced the listings staff's manual Google Sheet. Listing an artwork went from two weeks to three days.</p>
+
+<p>For the valuation tool, I asked the staff member who does the pricing to walk me through her process. She opens Artprice, looks up the artist, and filters by medium, edition, size and year until a few comparables remain. None of those steps needs a model. The work is repetitive, and the repetition was what the team wanted removed.</p>
 
 <p>The second version uses explicit filters, with a short note explaining why each comparable matched, and she still sets the price. AI is used for one task. The database lists every auction result for an artist, so past sales of the work being priced are mixed with sales of the artist's other works. Rules can flag likely matches by title and size, but confirming that two records show the same piece requires comparing the photos, and that comparison is the one step handed to a Gemini vision model.</p>
 
 <p>My takeaway is to observe how the work is done before choosing the technology, to use rules for routine steps, and to keep AI for the questions rules cannot answer.</p>
 
-<p>Pricing was one part of a longer engagement. I mapped how a seller gets from a first WhatsApp message to a live Shopify listing and found steps that existed only in chat messages and in people's memory. I then built a PostgreSQL database, Directus views for the staff and a listing workspace connected to Shopify, and refined each version with the staff on real seller submissions. I kept Shopify as the place the staff already work, and its own Draft status replaced the manual Google Sheet they had been keeping. Listing an artwork went from two weeks to three days.</p>
-
 <p>I also built a <a href="https://view.artagain.co/">"view on your wall"</a> page for iPhone. A buyer opens a listing's link, taps one button and sees the artwork on their own wall at its recorded size, with no app to install. It reads the photo and size from the Shopify feed.</p>
-
-<h2 id="compliance">Compliance screening for a Singapore financial institution</h2>
-
-<p>I engaged the compliance team of a Singapore financial institution independently. Their screening of every party in a deal was manual. Each name got its own Google search, the evidence was saved to files, and the same names were entered again into a separate monitoring system.</p>
-
-<p>I built a working demo of that workflow and took it to the team, asking them to correct anything that did not match how they work. Code runs the Google searches through Bright Data's Browser API and checks the hard facts, the OpenAI Decisions API (gpt-6-luna) quickly filters out paywalls and unreadable pages, at a median of 0.44 seconds a page, and a gpt-6.1-sol judge on the Responses API rates each result. The demo covered a screening run for each party with an evidence summary, the reviewer's recorded outcome and reason for every result, a full run history for audit, risk ratings that set each party's next review date, and daily monitoring.</p>
-
-<p>In a later discovery session the team walked me through their web screening step by step, and the scope narrowed to that piece and its audit trail. The compliance team is championing it internally.</p>
 
 <h2 id="crypto-com">Crypto.com <span class="when">· Innovation Team, 2024 to 2026</span></h2>
 
-<p>I was a senior software engineer on the Innovation Team, working on Crypto.com's developer platform for Cronos. I built its TypeScript and Python clients, the Python one from its first commit, and added the DeFi, exchange and CronosID modules to both. I also built the getting-started examples developers begin from, and added DeepSeek and Mistral support to them.</p>
-
-<p>On the AI agent itself, I worked on the LangChain and LangGraph integration that lets it use tools across several steps, with on-chain tools built alongside the Cronos Explorer team. In late 2025 I built agent wallet and payment features: EIP-7702 session keys so a new wallet with no CRO could give an agent limited rights, passkey sign-in for smart accounts, x402 payments inside the agent as a contributor to the Cronos x402 Facilitator, and an agent trading playground.</p>
+<p>I was a senior software engineer on the Innovation Team, working on Crypto.com's developer platform for Cronos. On its AI agent, I worked on the LangChain and LangGraph integration that lets it use tools across several steps, with on-chain tools built alongside the Cronos Explorer team.</p>
 
 <p>A conversation with the agent hit the model's 8,192-token limit in November 2024. I traced how each conversation's history grew, planned a token budget and a summary of older messages, and in June 2025 added configurable memory limits to the service.</p>
+
+<p>In late 2025 I built agent wallet and payment features: EIP-7702 session keys so a new wallet with no CRO could give an agent limited rights, passkey sign-in for smart accounts, x402 payments inside the agent as a contributor to the Cronos x402 Facilitator, and an agent trading playground.</p>
+
+<p>I built the platform's TypeScript and Python clients, the Python one from its first commit, added the DeFi, exchange and CronosID modules to both, and co-maintained the TypeScript AI agent client. Each TypeScript package sees about 3,000 npm downloads a month (October 2026). I also built the getting-started examples developers begin from, and added DeepSeek and Mistral support to them.</p>
 
 <p>I audited our own SDK in January 2026. My notes asked what it did that LangGraph didn't already make easy. I proposed a core of four dependencies in place of more than a hundred, with tools that work in any agent framework. The migration was deferred.</p>
 
@@ -101,13 +109,17 @@
 
 <h3>Repl <span class="when">· Starboard Ventures, 2023 to 2024</span></h3>
 
-<p>A DeFi protocol on Filecoin that reached USD 15M in deposits, since renamed <a href="https://defillama.com/protocol/parasail">Parasail</a>. I shipped its upgradeable smart contracts and designed pFIL, a rebasing token that pays holders yield without a staking step. I built the multisig dashboard the founders used to approve protocol changes with hardware wallets, and designed how the signers worked together.</p>
+<p>A DeFi protocol on Filecoin that reached USD 15M in deposits, since renamed <a href="https://defillama.com/protocol/parasail">Parasail</a>. I shipped its upgradeable smart contracts and designed pFIL, a rebasing token that pays holders yield without a claim step. I built the multisig dashboard the founders used to approve protocol changes with hardware wallets, and designed how the signers worked together.</p>
 
 <h3>Firerock Capital <span class="when">· 2022 to 2023</span></h3>
 
 <p>Our Docker build took 400 seconds. I got it to 10 by caching <code>go.mod</code> as its own layer and mounting the Go build cache. I also built the Go OAuth service that links a player's social accounts to their game account; the game was still in internal testing when I left.</p>
 
 <h2 id="projects">Projects</h2>
+
+<h3 id="rightcurve">RightCurve</h3>
+
+<p>I built <a href="https://learn.rightcurve.sg/">RightCurve</a>, MCQ practice for Singapore O- and A-Level students, with Gemini explanations and PostHog analytics.</p>
 
 <h3 id="casepilot">CasePilot <span class="when">· December 2025 to January 2026</span></h3>
 
