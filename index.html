@@ -17,6 +17,9 @@
   a { color: inherit; }
   code { font-size: 15px; }
   .when { color: #555; font-weight: normal; }
+  figure { margin: 28px 0; }
+  figure img { display: block; width: 100%; height: auto; border: 1px solid #ddd; }
+  figcaption { font-size: 14px; color: #555; margin-top: 8px; }
   .side { font-size: 15px; }
   .side ul { list-style: none; margin: 0; padding: 0; }
   .side a { text-decoration: none; }
@@ -121,6 +124,11 @@
 
 <p>I built <a href="https://learn.rightcurve.sg/">RightCurve</a>, MCQ practice for Singapore O- and A-Level students, with Gemini explanations and PostHog analytics.</p>
 
+<figure>
+  <img src="img/rightcurve-question.png" width="1220" height="552" alt="An O-Level Chemistry multiple-choice question with option B marked correct in green, beside an AI Tutor panel with an Explain solution button.">
+  <figcaption>A Chemistry question from a 2024 O-Level preliminary paper after a correct answer. The AI Tutor panel on the left is where Gemini explains the solution.</figcaption>
+</figure>
+
 <h3 id="casepilot">CasePilot <span class="when">· December 2025 to January 2026</span></h3>
 
 <p>I built CasePilot for a litigation lawyer who assembles bundles and affidavits. Every document becomes a labelled exhibit, the affidavit refers to those labels, and when the order changes the labels change. CasePilot is a desktop editor for that work. It runs on the lawyer's own machine, treats a case like a code repository, keeps each exhibit as an object so labels renumber when the bundle is reordered, and has a Cmd+K search over the evidence that works offline. It is built with Tauri, Rust and React, across 283 commits.</p>
@@ -131,7 +139,12 @@
 
 <h3 id="wedding-rsvp">Wedding RSVP <span class="when">· June to August 2026</span></h3>
 
-<p>In June 2026 I interviewed two people who had recently planned their own weddings in Singapore. Both had used WithJoy. Changing questions and amending responses was clunky, Chinese names were a problem, and the bigger cost came after the RSVPs. One of them spent about ten hours cross-referencing a spreadsheet to find who had not replied, and turning the yes list into the seating sheet the hotel needs meant more spreadsheet work. I wrote up their current workflow from guest sheet to hotel handoff, then built an operations workspace on Next.js and Supabase with a guest list, RSVP questions per event, an invitation preview per guest, response amendments, seating and a hotel-ready export. A logic audit on 14 July 2026 said no-go for real guest data, and I fixed every P0 and P1 finding the next day. The project is paused; <a href="https://wedding-rsvp-chi-beryl.vercel.app/">a demo is live</a>.</p>
+<p>In June 2026 I interviewed two people who had recently planned their own weddings in Singapore. Both had used WithJoy. Changing questions and amending responses was clunky, Chinese names were a problem, and the bigger cost came after the RSVPs. One of them spent about ten hours cross-referencing a spreadsheet to find who had not replied, and turning the yes list into the seating sheet the hotel needs meant more spreadsheet work. I wrote up their current workflow from guest sheet to hotel handoff, then built an operations workspace on Next.js and Supabase with a guest list, RSVP questions per event, an invitation preview per guest, response amendments, seating and a hotel-ready export. A logic audit on 14 July 2026 said no-go for real guest data, and I fixed every P0 and P1 finding the next day. The project is paused; <a href="https://sgweddingcard.vercel.app/">a demo is live</a>.</p>
+
+<figure>
+  <img src="img/wedding-seating.jpg" width="1200" height="764" alt="A seating plan with a list of unseated guests and their RSVP status, a floor plan of twelve tables around a stage and dance floor, and a list of each table's guests.">
+  <figcaption>The seating plan in the demo's example workspace, with made-up guests. Unseated guests are on the left, the floor plan is in the middle, and each table's guests and RSVP status are on the right.</figcaption>
+</figure>
 
 <h2 id="how-i-work">How I work now</h2>
 
